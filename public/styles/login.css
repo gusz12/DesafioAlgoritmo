@@ -39,17 +39,20 @@ body{
     display: flex;
     align-items: start;
     width: 100%;
-    height: 100%;
+    height: auto;
 
 }
 .login h3{
     align-self: flex-start;
-    margin: 0;
+    margin: 10px 10px;
+    font-size: 25px;
 
 }
 
 .livrocominput{
     display: flex;
+    width: 100%;
+    justify-content: space-around;
 
 }
 
@@ -61,7 +64,7 @@ body{
 .inputs{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 40%;
 
 }
 
