@@ -1,8 +1,11 @@
 body{
     display: flex;
     background-repeat: no-repeat;
-    background-position: 300px 300px 300px 300px;
-    background-image: url(assets/mesadeencantamento.jpg);
+    background-position: 300px 0px 200px 200px;
     background-size: cover;
-    margin: 0;
+    margin:0; 
+}  
+
+.fundo{
+    
 }
