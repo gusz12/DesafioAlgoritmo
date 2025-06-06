@@ -26,7 +26,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 600px;
+    margin-bottom: 400px;
     margin-left: 65px;
     width: 400px;
     height: 200px;
@@ -69,10 +69,20 @@ body{
 }
 
 button{
-    width: 60px;
-    border: none;
+    margin-top: 20px;
+    width: 250px;
+    color: #8AF222;
+    text-shadow: 1px 1px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000;
+    margin-bottom: 10px;
 }
 
 input{
     width: 100%;
+    background-color: #A69677;
+}
+
+.xp h3{
+    font-size: 15px;
+    color: #8AF222;
+    text-shadow: 1px 1px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000;
 }
