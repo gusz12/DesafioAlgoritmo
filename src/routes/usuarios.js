@@ -9,7 +9,7 @@ router.post("/cadastrar", function (req, res) {
 })
 
 router.get("/login", function (req, res) {
-    usuarioController.autenticar(req, res);
+    usuarioController.login(req, res);
 });
 
 module.exports = router;

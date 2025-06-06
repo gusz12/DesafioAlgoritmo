@@ -27,10 +27,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/quiz3", quiz3Router);
-app.use("/Noticia", NoticiaRouter);
-app.use("/jogos", jogosRouter);
-app.use("/dash", dashRouter);
+
 
 app.listen(PORTA_APP, function () {
     console.log(`

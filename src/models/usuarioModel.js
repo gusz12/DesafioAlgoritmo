@@ -1,7 +1,7 @@
 var database = require("../database/config")
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function enviar_dados(apelido, senha) {
+function cadastrar(apelido, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha);
     
     var instrucaoSql = `
@@ -12,6 +12,29 @@ function enviar_dados(apelido, senha) {
     return database.executar(instrucaoSql);
 }
 
+function autenticar(apelido,senha){
+
+console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha);
+    
+    var instrucaoSql = `
+        select apelido, senha from usuario where apelido = ${apelido} and  senha = ${senha};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function verificarApelidoExistente(apelido) {
+    var instrucaoSql = `
+        select * from usuario where apelido = ${apelido};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    enviar_dados
+    cadastrar,
+    autenticar,
+    verificarApelidoExistente
 };
