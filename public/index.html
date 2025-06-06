@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio Algoritmo</title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
+
+<script>
+    function cadastrar() {
+        var apelidoVar = ipt_nome.value;
+        
+
+
+        if (
+            nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmacaoSenhaVar == "" ||
+            imgVar == "" ||
+            telefoneVar == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Preecha todos os campos";
+
+            finalizarAguardar();
+            return false;
+        } else if (emailTemArroba < 0 || emailTemPonto < 0) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Email inválido. Deve conter @ e .";
+
+            finalizarAguardar();
+            return false;
+        } else if (telefoneVar.length < 11 || telefoneVar.length > 11) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Telefone inválido. Deve conter 11 dígitos numéricos.";
+
+            finalizarAguardar();
+            return false;
+        } else if (senhaVar.length < 8) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Senha inválida. Deve conter no mínimo 8 dígitos.";
+
+            finalizarAguardar();
+            return false;
+        } else if (confirmacaoSenhaVar != senhaVar) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Campo senha e confirmação de senha devem ser iguais.";
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                telefoneServer: telefoneVar,
+                fotoPerfilServer: imgVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+
+</script>
