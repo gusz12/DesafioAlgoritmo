@@ -4,12 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Algoritmo</title>
+    <title>Mapa do Mine</title>
 </head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
 
-<body>
+    #div_mapa {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .linha {
+        display: flex;
+        flex-direction: row;
+    }
+
+    button {
+        border: 0px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+<body onload="mostrarMapa()">
+
+    <div id="div_mapa"></div>
 </body>
 
 </html>
-<script src="../js/main.js"></script>
+<script>
+    const mapa = [
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+        ["c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"],
+    ]
+
+    function mostrarMapa() {
+        let mensagem = ""
+        for (let i = 0; i < mapa.length; i++) {
+            mensagem += `<div class="linha">`
+
+            for (let j = 0; j < mapa[i].length; j++) {
+                if (mapa[i][j] == `c`) { // ceu
+                    mapa[i][j] = `<button><img src="styles/assets/pedra.png"></button>`
+                } else if (mapa[i][j] == `f`) { // folhas
+                    mapa[i][j] = `<img src="imagens/folhas.png">`
+                } else if (mapa[i][j] == `t`) { // tronco
+                    mapa[i][j] = `<img src="imagens/arvore.png">`
+                } else if (mapa[i][j] == `b`) { // bancada trabalho
+                    mapa[i][j] = `<img src="imagens/crafting.png">`
+                } else if (mapa[i][j] == `g`) { // grama
+                    mapa[i][j] = `<img src="imagens/grama.png">`
+                } else if (mapa[i][j] == `d`) { // dirt
+                    mapa[i][j] = `<img src="imagens/dirt.png">`
+                } else if (mapa[i][j] == `p`) { // pedra
+                    mapa[i][j] = `<img src="imagens/pedra.png">`
+                } else if (mapa[i][j] == `o`) { // outro
+                    mapa[i][j] = `<img src="imagens/ouro.png">`
+                } else { // diamante
+                    mapa[i][j] = `<img src="imagens/diamante.png">`
+                }
+
+                mensagem += `${mapa[i][j]}`
+            }
+            mensagem += `</div>`
+
+            console.log(mensagem)
+            // for(let k = 0; k<mapa.length; k++){
+            //     mensagem += "<br>"
+            // }
+
+        }
+        div_mapa.innerHTML = mensagem.split(",")
+    }
+</script>
+    
