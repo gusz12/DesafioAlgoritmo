@@ -72,6 +72,7 @@ button{
     margin-top: 20px;
     width: 250px;
     color: #8AF222;
+    background-color: #A69677;
     text-shadow: 1px 1px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000;
     margin-bottom: 10px;
 }
