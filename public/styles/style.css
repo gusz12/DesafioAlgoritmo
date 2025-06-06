@@ -3,26 +3,66 @@
     src: url(minecraft/Minecraft.ttf);
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
 
-body{
+header {
+    background-color: #BFBFBF;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 }
 
-.container{
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+.tudo {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     background-image: url(assets/mesadeencantamento.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.container {
+    border: inset black 4px;
+    width: 50%;
+    background-color: #BFBFBF;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.botoes{
+
+.botoes {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
 }
-.botoes button{
+
+.botoes button {}
+
+.botoes a {
     border: inset 4px black;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    gap: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    color: black;
+    transition: 0.3s;
 }
-.botoes a{
-    text-decoration:none;
+
+.botoes a:hover {
+    transform: scale(1.2);
 }
