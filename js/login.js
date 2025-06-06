@@ -18,7 +18,7 @@
         console.log("FORM SENHA: ", senhaVar);
 
         fetch("/usuarios/login", {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -39,7 +39,7 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./DesafioAlgoritmo/index.html";
+                        window.location = "../public/index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
