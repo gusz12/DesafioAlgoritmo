@@ -1,6 +1,10 @@
+
 body{
     display: flex;
     margin:0; 
+    font-family: mines;
+    color: #585656;
+    font-weight: bold;
 }
 
 .container{
@@ -19,7 +23,7 @@ body{
 
 .login{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 600px;
@@ -31,13 +35,36 @@ body{
     border-radius: 5px;
 }
 
+.titulologin{
+    display: flex;
+    align-items: start;
+    width: 100%;
+    height: auto;
+
+}
+.login h3{
+    align-self: flex-start;
+    margin: 10px 10px;
+    font-size: 25px;
+
+}
+
+.livrocominput{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
 .livro img{
     width: 100px;
     
 }
 
 .inputs{
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
 
 }
 
@@ -47,5 +74,5 @@ button{
 }
 
 input{
-    width: 60px;
+    width: 100%;
 }

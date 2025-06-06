@@ -1,3 +1,9 @@
+@font-face {
+    font-family: mines;
+    src: url(minecraft/Minecraft.ttf);
+}
+
+
 body{
     display: flex;
     align-items: center;
