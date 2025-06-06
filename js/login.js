@@ -1,8 +1,8 @@
   function entrar() {
         
 
-        var apelidoVar = ipt_nome.value;
-        var senhaVar = ipt_senha.value;
+        var apelidoVar = input_apelido.value;
+        var senhaVar = input_senha.value;
 
         if (apelidoVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
