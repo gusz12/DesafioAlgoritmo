@@ -11,7 +11,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
 
-        usuarioModel.verificarEmailOuApelidoExistente(apelido)
+        usuarioModel.verificarApelidoExistente(apelido)
             .then(usuarios => {
                 let mensagem = "";
 
