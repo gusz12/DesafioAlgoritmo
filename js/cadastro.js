@@ -1,15 +1,12 @@
     function cadastrar() {
         var apelidoVar = ipt_nome.value;
-        
-
+        var senhaVar = ipt_senha.value;
+        var confSenha = ipt_confsenha.value;
 
         if (
             nomeVar == "" ||
-            emailVar == "" ||
             senhaVar == "" ||
             confirmacaoSenhaVar == "" ||
-            imgVar == "" ||
-            telefoneVar == ""
         ) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
@@ -17,21 +14,7 @@
 
             finalizarAguardar();
             return false;
-        } else if (emailTemArroba < 0 || emailTemPonto < 0) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "Email inválido. Deve conter @ e .";
-
-            finalizarAguardar();
-            return false;
-        } else if (telefoneVar.length < 11 || telefoneVar.length > 11) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "Telefone inválido. Deve conter 11 dígitos numéricos.";
-
-            finalizarAguardar();
-            return false;
-        } else if (senhaVar.length < 8) {
+        } if (senhaVar.length < 8) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Senha inválida. Deve conter no mínimo 8 dígitos.";
@@ -58,12 +41,9 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                telefoneServer: telefoneVar,
-                fotoPerfilServer: imgVar
-            }),
+                apelidoServer: nomeVar,
+                senhaServer: senhaVar
+            }), 
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
