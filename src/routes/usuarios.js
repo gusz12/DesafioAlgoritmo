@@ -8,7 +8,7 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
-router.post("/pontuacao", function (req, res) {
+router.get("/login", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
