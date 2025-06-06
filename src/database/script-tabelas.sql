@@ -46,3 +46,12 @@ select u.apelido as nome , r.pontuacao ,d.tipo as dificuldade,r.tempo
 from usuario u
 inner join resultado r on u.id = r.usuario_id
 inner join dificuldade d on u.id = d.id
+
+
+ SELECT u.apelido, MAX(r.pontuacao) AS Melhores 
+        FROM usuario u
+        inner join resultado r on u.id = r.usuario_id
+		inner join dificuldade d on u.id = d.id
+        GROUP BY r.usuario_id, u.apelido
+        ORDER BY Melhores  DESC
+        LIMIT 5
